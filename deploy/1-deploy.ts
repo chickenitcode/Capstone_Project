@@ -11,17 +11,34 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   console.log("====================");
 
   console.log("====================");
-  console.log("Deploy Counter Contract");
+  console.log("Deploy MockERC20 Contract");
   console.log("====================");
 
-  await deploy("Counter", {
-    contract: "Counter",
-    args: [],
+  const mockERC20 = await deploy("MockERC20", {
+    contract: "MockERC20",
+    args: ["MockToken", "MTK"],
     from: deployer,
     log: true,
     autoMine: true,
     skipIfAlreadyDeployed: false,
   });
+
+  console.log("MockERC20 deployed at:", mockERC20.address);
+
+  console.log("====================");
+  console.log("Deploy Voting Contract");
+  console.log("====================");
+
+  const voting = await deploy("Voting", {
+    contract: "Voting",
+    args: [mockERC20.address],
+    from: deployer,
+    log: true,
+    autoMine: true,
+    skipIfAlreadyDeployed: false,
+  });
+
+  console.log("Voting deployed at:", voting.address);
 };
 
 func.tags = ["deploy"];

@@ -1,0 +1,427 @@
+{
+  "address": "0x5102f9E49a4AB0accAc7017CFD4cB6d85603c2d7",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "candidateId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "name": "CandidateAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "candidateId",
+          "type": "uint256"
+        }
+      ],
+      "name": "CandidateRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "voter",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "candidateId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "votingPower",
+          "type": "uint256"
+        }
+      ],
+      "name": "Voted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        }
+      ],
+      "name": "addCandidate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "candidateCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "candidates",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "voteCount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllCandidates",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "voteCount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct Voting.Candidate[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_candidateId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getCandidate",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "voteCount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "voter",
+          "type": "address"
+        }
+      ],
+      "name": "getVotingPower",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "hasVoted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_candidateId",
+          "type": "uint256"
+        }
+      ],
+      "name": "removeCandidate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "token",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_candidateId",
+          "type": "uint256"
+        }
+      ],
+      "name": "vote",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xbc3a7fc6c52c3ff19e18923bf6438da06d57945332c0f3536cab7aaafb748b81",
+  "receipt": {
+    "to": null,
+    "from": "0x0855575E7ddBb21A8bF3D50D0144Da902C26aCBB",
+    "contractAddress": "0x5102f9E49a4AB0accAc7017CFD4cB6d85603c2d7",
+    "transactionIndex": 152,
+    "gasUsed": "719142",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xde472f757c59b5ba02ac5c34b8569210b30f59583959fabf1c98c9178c58441c",
+    "transactionHash": "0xbc3a7fc6c52c3ff19e18923bf6438da06d57945332c0f3536cab7aaafb748b81",
+    "logs": [],
+    "blockNumber": 8829227,
+    "cumulativeGasUsed": "42243227",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x8D1c76321874f7467a33eab161284Ba1Fb88f233"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "cfd2027b17ca4ebfd045a73b0629a0cd",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.28+commit.7893614a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"candidateId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"CandidateAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"candidateId\",\"type\":\"uint256\"}],\"name\":\"CandidateRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"voter\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"candidateId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"votingPower\",\"type\":\"uint256\"}],\"name\":\"Voted\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"}],\"name\":\"addCandidate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"candidateCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"candidates\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"voteCount\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllCandidates\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"voteCount\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"internalType\":\"struct Voting.Candidate[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_candidateId\",\"type\":\"uint256\"}],\"name\":\"getCandidate\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"voteCount\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"voter\",\"type\":\"address\"}],\"name\":\"getVotingPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"hasVoted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_candidateId\",\"type\":\"uint256\"}],\"name\":\"removeCandidate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_candidateId\",\"type\":\"uint256\"}],\"name\":\"vote\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/VotingDApp.sol\":\"Voting\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[],\"viaIR\":true},\"sources\":{\"contracts/VotingDApp.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\ninterface IERC20 {\\r\\n    function balanceOf(address account) external view returns (uint256);\\r\\n}\\r\\n\\r\\ncontract Voting {\\r\\n    struct Candidate {\\r\\n        string name;\\r\\n        uint256 voteCount;\\r\\n        bool exists;\\r\\n    }\\r\\n\\r\\n    address public owner;\\r\\n    IERC20 public token;\\r\\n    mapping(address => bool) public hasVoted;\\r\\n    mapping(uint256 => Candidate) public candidates;\\r\\n    uint256 public candidateCount;\\r\\n\\r\\n    event Voted(address indexed voter, uint256 indexed candidateId, uint256 votingPower);\\r\\n    event CandidateAdded(uint256 indexed candidateId, string name);\\r\\n    event CandidateRemoved(uint256 indexed candidateId);\\r\\n\\r\\n    modifier onlyOwner() {\\r\\n        require(msg.sender == owner, \\\"Only owner\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    constructor(address _token) {\\r\\n        owner = msg.sender;\\r\\n        token = IERC20(_token);\\r\\n    }\\r\\n\\r\\n    function addCandidate(string memory _name) public onlyOwner {\\r\\n        candidates[candidateCount] = Candidate(_name, 0, true);\\r\\n        emit CandidateAdded(candidateCount, _name);\\r\\n        candidateCount++;\\r\\n    }\\r\\n\\r\\n    function removeCandidate(uint256 _candidateId) public onlyOwner {\\r\\n        require(candidates[_candidateId].exists, \\\"Candidate does not exist\\\");\\r\\n        delete candidates[_candidateId];\\r\\n        emit CandidateRemoved(_candidateId);\\r\\n    }\\r\\n\\r\\n    function getVotingPower(address voter) public view returns (uint256) {\\r\\n        uint256 balance = token.balanceOf(voter);\\r\\n        if (balance < 1000 ether) {\\r\\n            return 1;\\r\\n        } else if (balance < 2000 ether) {\\r\\n            return 2;\\r\\n        } else {\\r\\n            return 3;\\r\\n        }\\r\\n    }\\r\\n\\r\\n    function vote(uint256 _candidateId) public {\\r\\n        require(!hasVoted[msg.sender], \\\"Already voted\\\");\\r\\n        require(candidates[_candidateId].exists, \\\"Candidate does not exist\\\");\\r\\n        uint256 power = getVotingPower(msg.sender);\\r\\n        candidates[_candidateId].voteCount += power;\\r\\n        hasVoted[msg.sender] = true;\\r\\n        emit Voted(msg.sender, _candidateId, power);\\r\\n    }\\r\\n\\r\\n    function getCandidate(uint256 _candidateId) public view returns (string memory name, uint256 voteCount, bool exists) {\\r\\n        Candidate memory c = candidates[_candidateId];\\r\\n        return (c.name, c.voteCount, c.exists);\\r\\n    }\\r\\n\\r\\n    function getAllCandidates() public view returns (Candidate[] memory) {\\r\\n        Candidate[] memory list = new Candidate[](candidateCount);\\r\\n        for (uint256 i = 0; i < candidateCount; i++) {\\r\\n            list[i] = candidates[i];\\r\\n        }\\r\\n        return list;\\r\\n    }\\r\\n} \\r\\n\\r\\n\\r\\n\",\"keccak256\":\"0x873d74feebd4c29dec3ad29dbe9e7a21535588657323a67c3732181a179b98f2\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608034607e57601f610bd238819003918201601f19168301916001600160401b03831184841017608357808492602094604052833981010312607e57516001600160a01b03811690819003607e57600080546001600160a01b0319908116331790915560018054909116919091179055604051610b38908161009a8239f35b600080fd5b634e487b7160e01b600052604160045260246000fdfe608080604052600436101561001357600080fd5b60003560e01c9081630121b93f146106d45750806309e9d7e2146105f957806309eef43e146105b75780632e6997fe146104575780633477ee2e1461041157806335b8e820146103a8578063462e91ec146101405780638da5cb5b14610119578063a9a981a3146100fb578063bb4d4436146100c45763fc0c546a1461009857600080fd5b346100bf5760003660031901126100bf5760206001600160a01b0360015416604051908152f35b600080fd5b346100bf5760203660031901126100bf576004356001600160a01b03811681036100bf576100f3602091610a3e565b604051908152f35b346100bf5760003660031901126100bf576020600454604051908152f35b346100bf5760003660031901126100bf5760206001600160a01b0360005416604051908152f35b346100bf5760203660031901126100bf5760043567ffffffffffffffff81116100bf57366023820112156100bf57806004013567ffffffffffffffff8111610392576040519161019a601f8301601f191660200184610865565b81835236602483830101116100bf578160009260246020930183860137830101526101d16001600160a01b0360005416331461099a565b604051906101de82610849565b808252602082016000815260408301906001825260045460005260036020526040600020935180519067ffffffffffffffff821161039257610220865461080f565b601f8111610355575b50602090601f83116001146102e7579180600294926102b298946000926102dc575b50508160011b916000199060031b1c19161782555b516001820155019051151560ff801983541691161790557fe83b2a43e7e82d975c8a0a6d2f045153c869e111136a34d1889ab7b598e396a36004549283926040519182916020835260208301906107ce565b0390a260001981146102c657600101600455005b634e487b7160e01b600052601160045260246000fd5b01519050888061024b565b90601f1983169187600052816000209260005b81811061033d57509260019285926102b29a966002989610610324575b505050811b018255610260565b015160001960f88460031b161c19169055888080610317565b929360206001819287860151815501950193016102fa565b61038290876000526020600020601f850160051c81019160208610610388575b601f0160051c01906109e5565b86610229565b9091508190610375565b634e487b7160e01b600052604160045260246000fd5b346100bf5760203660031901126100bf57600435600052600360205260406000206040516103d581610849565b61040d60406103e384610887565b9283815260ff6002600187015496876020850152015416151591829101526040519384938461092b565b0390f35b346100bf5760203660031901126100bf576004356000526003602052604060002061043b81610887565b61040d60ff60026001850154940154166040519384938461092b565b346100bf5760003660031901126100bf57600454610474816109fc565b906104826040519283610865565b808252601f19610491826109fc565b0160005b81811061058b57505060005b81811061052f57826040518091602082016020835281518091526040830190602060408260051b8601019301916000905b8282106104e157505050500390f35b919360019193955060208091603f1989820301855287519060408061050f84516060855260608501906107ce565b9385810151868501520151151591015296019201920185949391926104d2565b806001916000526003602052604060002060ff60026040519261055184610849565b61055a81610887565b8452858101546020850152015416151560408201526105798286610a14565b526105848185610a14565b50016104a1565b60209060405161059a81610849565b606081526000838201526000604082015282828701015201610495565b346100bf5760203660031901126100bf576004356001600160a01b0381168091036100bf576000526002602052602060ff604060002054166040519015158152f35b346100bf5760203660031901126100bf576004356106236001600160a01b0360005416331461099a565b80600052600360205261064060ff6002604060002001541661094f565b806000526003602052600060026040822061065b815461080f565b80610691575b5082600182015501557f294c5a9bc8a39e6e06502bc8da429980f6c7b0990d75b682c12cb8705e3ace85600080a2005b601f81116001146106a757508281555b84610661565b818452602084206106c391601f0160051c8101906001016109e5565b8083528260208120818355556106a1565b346100bf5760203660031901126100bf576004359033600052600260205260ff6040600020541661078c575080600052600360205261071d60ff6002604060002001541661094f565b61072633610a3e565b81600052600360205260016040600020018054908282018092116102c657553360005260026020526040600020600160ff198254161790556040519081527fea66f58e474bc09f580000e81f31b334d171db387d0c6098ba47bd897741679b60203392a3005b8062461bcd60e51b6064925260206004820152600d60248201527f416c726561647920766f746564000000000000000000000000000000000000006044820152fd5b919082519283825260005b8481106107fa575050826000602080949584010152601f8019910116010190565b806020809284010151828286010152016107d9565b90600182811c9216801561083f575b602083101461082957565b634e487b7160e01b600052602260045260246000fd5b91607f169161081e565b6060810190811067ffffffffffffffff82111761039257604052565b90601f8019910116810190811067ffffffffffffffff82111761039257604052565b906040519182600082549261089b8461080f565b808452936001811690811561090957506001146108c2575b506108c092500383610865565b565b90506000929192526020600020906000915b8183106108ed5750509060206108c092820101386108b3565b60209193508060019154838589010152019101909184926108d4565b9050602092506108c094915060ff191682840152151560051b820101386108b3565b9193926109426040926060855260608501906107ce565b9460208401521515910152565b1561095657565b606460405162461bcd60e51b815260206004820152601860248201527f43616e64696461746520646f6573206e6f7420657869737400000000000000006044820152fd5b156109a157565b606460405162461bcd60e51b815260206004820152600a60248201527f4f6e6c79206f776e6572000000000000000000000000000000000000000000006044820152fd5b8181106109f0575050565b600081556001016109e5565b67ffffffffffffffff81116103925760051b60200190565b8051821015610a285760209160051b010190565b634e487b7160e01b600052603260045260246000fd5b60206001600160a01b03602481600154169360405194859384927f70a082310000000000000000000000000000000000000000000000000000000084521660048301525afa908115610af657600091610ac4575b50683635c9adc5dea00000811015610aaa5750600190565b686c6b935b8bbd4000001115610abf57600290565b600390565b90506020813d602011610aee575b81610adf60209383610865565b810103126100bf575138610a92565b3d9150610ad2565b6040513d6000823e3d90fdfea26469706673582212203f1afa6a89bfc9c27e2a2931d0ebb0029eae41f7d77fa61aed9fc41ef3ac2fde64736f6c634300081c0033",
+  "deployedBytecode": "0x608080604052600436101561001357600080fd5b60003560e01c9081630121b93f146106d45750806309e9d7e2146105f957806309eef43e146105b75780632e6997fe146104575780633477ee2e1461041157806335b8e820146103a8578063462e91ec146101405780638da5cb5b14610119578063a9a981a3146100fb578063bb4d4436146100c45763fc0c546a1461009857600080fd5b346100bf5760003660031901126100bf5760206001600160a01b0360015416604051908152f35b600080fd5b346100bf5760203660031901126100bf576004356001600160a01b03811681036100bf576100f3602091610a3e565b604051908152f35b346100bf5760003660031901126100bf576020600454604051908152f35b346100bf5760003660031901126100bf5760206001600160a01b0360005416604051908152f35b346100bf5760203660031901126100bf5760043567ffffffffffffffff81116100bf57366023820112156100bf57806004013567ffffffffffffffff8111610392576040519161019a601f8301601f191660200184610865565b81835236602483830101116100bf578160009260246020930183860137830101526101d16001600160a01b0360005416331461099a565b604051906101de82610849565b808252602082016000815260408301906001825260045460005260036020526040600020935180519067ffffffffffffffff821161039257610220865461080f565b601f8111610355575b50602090601f83116001146102e7579180600294926102b298946000926102dc575b50508160011b916000199060031b1c19161782555b516001820155019051151560ff801983541691161790557fe83b2a43e7e82d975c8a0a6d2f045153c869e111136a34d1889ab7b598e396a36004549283926040519182916020835260208301906107ce565b0390a260001981146102c657600101600455005b634e487b7160e01b600052601160045260246000fd5b01519050888061024b565b90601f1983169187600052816000209260005b81811061033d57509260019285926102b29a966002989610610324575b505050811b018255610260565b015160001960f88460031b161c19169055888080610317565b929360206001819287860151815501950193016102fa565b61038290876000526020600020601f850160051c81019160208610610388575b601f0160051c01906109e5565b86610229565b9091508190610375565b634e487b7160e01b600052604160045260246000fd5b346100bf5760203660031901126100bf57600435600052600360205260406000206040516103d581610849565b61040d60406103e384610887565b9283815260ff6002600187015496876020850152015416151591829101526040519384938461092b565b0390f35b346100bf5760203660031901126100bf576004356000526003602052604060002061043b81610887565b61040d60ff60026001850154940154166040519384938461092b565b346100bf5760003660031901126100bf57600454610474816109fc565b906104826040519283610865565b808252601f19610491826109fc565b0160005b81811061058b57505060005b81811061052f57826040518091602082016020835281518091526040830190602060408260051b8601019301916000905b8282106104e157505050500390f35b919360019193955060208091603f1989820301855287519060408061050f84516060855260608501906107ce565b9385810151868501520151151591015296019201920185949391926104d2565b806001916000526003602052604060002060ff60026040519261055184610849565b61055a81610887565b8452858101546020850152015416151560408201526105798286610a14565b526105848185610a14565b50016104a1565b60209060405161059a81610849565b606081526000838201526000604082015282828701015201610495565b346100bf5760203660031901126100bf576004356001600160a01b0381168091036100bf576000526002602052602060ff604060002054166040519015158152f35b346100bf5760203660031901126100bf576004356106236001600160a01b0360005416331461099a565b80600052600360205261064060ff6002604060002001541661094f565b806000526003602052600060026040822061065b815461080f565b80610691575b5082600182015501557f294c5a9bc8a39e6e06502bc8da429980f6c7b0990d75b682c12cb8705e3ace85600080a2005b601f81116001146106a757508281555b84610661565b818452602084206106c391601f0160051c8101906001016109e5565b8083528260208120818355556106a1565b346100bf5760203660031901126100bf576004359033600052600260205260ff6040600020541661078c575080600052600360205261071d60ff6002604060002001541661094f565b61072633610a3e565b81600052600360205260016040600020018054908282018092116102c657553360005260026020526040600020600160ff198254161790556040519081527fea66f58e474bc09f580000e81f31b334d171db387d0c6098ba47bd897741679b60203392a3005b8062461bcd60e51b6064925260206004820152600d60248201527f416c726561647920766f746564000000000000000000000000000000000000006044820152fd5b919082519283825260005b8481106107fa575050826000602080949584010152601f8019910116010190565b806020809284010151828286010152016107d9565b90600182811c9216801561083f575b602083101461082957565b634e487b7160e01b600052602260045260246000fd5b91607f169161081e565b6060810190811067ffffffffffffffff82111761039257604052565b90601f8019910116810190811067ffffffffffffffff82111761039257604052565b906040519182600082549261089b8461080f565b808452936001811690811561090957506001146108c2575b506108c092500383610865565b565b90506000929192526020600020906000915b8183106108ed5750509060206108c092820101386108b3565b60209193508060019154838589010152019101909184926108d4565b9050602092506108c094915060ff191682840152151560051b820101386108b3565b9193926109426040926060855260608501906107ce565b9460208401521515910152565b1561095657565b606460405162461bcd60e51b815260206004820152601860248201527f43616e64696461746520646f6573206e6f7420657869737400000000000000006044820152fd5b156109a157565b606460405162461bcd60e51b815260206004820152600a60248201527f4f6e6c79206f776e6572000000000000000000000000000000000000000000006044820152fd5b8181106109f0575050565b600081556001016109e5565b67ffffffffffffffff81116103925760051b60200190565b8051821015610a285760209160051b010190565b634e487b7160e01b600052603260045260246000fd5b60206001600160a01b03602481600154169360405194859384927f70a082310000000000000000000000000000000000000000000000000000000084521660048301525afa908115610af657600091610ac4575b50683635c9adc5dea00000811015610aaa5750600190565b686c6b935b8bbd4000001115610abf57600290565b600390565b90506020813d602011610aee575b81610adf60209383610865565b810103126100bf575138610a92565b3d9150610ad2565b6040513d6000823e3d90fdfea26469706673582212203f1afa6a89bfc9c27e2a2931d0ebb0029eae41f7d77fa61aed9fc41ef3ac2fde64736f6c634300081c0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 18,
+        "contract": "contracts/VotingDApp.sol:Voting",
+        "label": "owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 21,
+        "contract": "contracts/VotingDApp.sol:Voting",
+        "label": "token",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_contract(IERC20)9"
+      },
+      {
+        "astId": 25,
+        "contract": "contracts/VotingDApp.sol:Voting",
+        "label": "hasVoted",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 30,
+        "contract": "contracts/VotingDApp.sol:Voting",
+        "label": "candidates",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_uint256,t_struct(Candidate)16_storage)"
+      },
+      {
+        "astId": 32,
+        "contract": "contracts/VotingDApp.sol:Voting",
+        "label": "candidateCount",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_contract(IERC20)9": {
+        "encoding": "inplace",
+        "label": "contract IERC20",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_uint256,t_struct(Candidate)16_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct Voting.Candidate)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Candidate)16_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Candidate)16_storage": {
+        "encoding": "inplace",
+        "label": "struct Voting.Candidate",
+        "members": [
+          {
+            "astId": 11,
+            "contract": "contracts/VotingDApp.sol:Voting",
+            "label": "name",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 13,
+            "contract": "contracts/VotingDApp.sol:Voting",
+            "label": "voteCount",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 15,
+            "contract": "contracts/VotingDApp.sol:Voting",
+            "label": "exists",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "96"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

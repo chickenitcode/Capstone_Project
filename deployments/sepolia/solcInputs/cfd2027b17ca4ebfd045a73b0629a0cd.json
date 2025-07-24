@@ -1,0 +1,37 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/VotingDApp.sol": {
+      "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ninterface IERC20 {\r\n    function balanceOf(address account) external view returns (uint256);\r\n}\r\n\r\ncontract Voting {\r\n    struct Candidate {\r\n        string name;\r\n        uint256 voteCount;\r\n        bool exists;\r\n    }\r\n\r\n    address public owner;\r\n    IERC20 public token;\r\n    mapping(address => bool) public hasVoted;\r\n    mapping(uint256 => Candidate) public candidates;\r\n    uint256 public candidateCount;\r\n\r\n    event Voted(address indexed voter, uint256 indexed candidateId, uint256 votingPower);\r\n    event CandidateAdded(uint256 indexed candidateId, string name);\r\n    event CandidateRemoved(uint256 indexed candidateId);\r\n\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Only owner\");\r\n        _;\r\n    }\r\n\r\n    constructor(address _token) {\r\n        owner = msg.sender;\r\n        token = IERC20(_token);\r\n    }\r\n\r\n    function addCandidate(string memory _name) public onlyOwner {\r\n        candidates[candidateCount] = Candidate(_name, 0, true);\r\n        emit CandidateAdded(candidateCount, _name);\r\n        candidateCount++;\r\n    }\r\n\r\n    function removeCandidate(uint256 _candidateId) public onlyOwner {\r\n        require(candidates[_candidateId].exists, \"Candidate does not exist\");\r\n        delete candidates[_candidateId];\r\n        emit CandidateRemoved(_candidateId);\r\n    }\r\n\r\n    function getVotingPower(address voter) public view returns (uint256) {\r\n        uint256 balance = token.balanceOf(voter);\r\n        if (balance < 1000 ether) {\r\n            return 1;\r\n        } else if (balance < 2000 ether) {\r\n            return 2;\r\n        } else {\r\n            return 3;\r\n        }\r\n    }\r\n\r\n    function vote(uint256 _candidateId) public {\r\n        require(!hasVoted[msg.sender], \"Already voted\");\r\n        require(candidates[_candidateId].exists, \"Candidate does not exist\");\r\n        uint256 power = getVotingPower(msg.sender);\r\n        candidates[_candidateId].voteCount += power;\r\n        hasVoted[msg.sender] = true;\r\n        emit Voted(msg.sender, _candidateId, power);\r\n    }\r\n\r\n    function getCandidate(uint256 _candidateId) public view returns (string memory name, uint256 voteCount, bool exists) {\r\n        Candidate memory c = candidates[_candidateId];\r\n        return (c.name, c.voteCount, c.exists);\r\n    }\r\n\r\n    function getAllCandidates() public view returns (Candidate[] memory) {\r\n        Candidate[] memory list = new Candidate[](candidateCount);\r\n        for (uint256 i = 0; i < candidateCount; i++) {\r\n            list[i] = candidates[i];\r\n        }\r\n        return list;\r\n    }\r\n} \r\n\r\n\r\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 1000
+    },
+    "viaIR": true,
+    "evmVersion": "paris",
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "storageLayout",
+          "devdoc",
+          "userdoc",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
