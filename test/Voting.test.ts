@@ -23,6 +23,7 @@ describe("Voting", function () {
     // await voting.deployed();
   });
 
+  // Kịch bản: Chủ sở hữu có thể thêm và xóa ứng viên
   it("should allow owner to add and remove candidates", async () => {
     await voting.addCandidate("Alice");
     await voting.addCandidate("Bob");
@@ -35,12 +36,14 @@ describe("Voting", function () {
     expect(c[2]).to.equal(false); // exists = false
   });
 
+  // Kịch bản: Người không phải chủ sở hữu không thể thêm/xóa ứng viên
   it("should not allow non-owner to add/remove candidates", async () => {
     await expect(voting.connect(voter1).addCandidate("Eve")).to.be.revertedWith("Only owner");
     await voting.addCandidate("Alice");
     await expect(voting.connect(voter1).removeCandidate(0)).to.be.revertedWith("Only owner");
   });
 
+  // Kịch bản: Bỏ phiếu và tính đúng sức mạnh phiếu bầu
   it("should allow voting and count voting power correctly", async () => {
     await voting.addCandidate("Alice");
     await voting.addCandidate("Bob");
@@ -67,16 +70,19 @@ describe("Voting", function () {
     expect(bob[1]).to.equal(4n); // 3+1
   });
 
+  // Kịch bản: Không cho phép bỏ phiếu hai lần cho cùng một ứng viên
   it("should not allow double voting", async () => {
     await voting.addCandidate("Alice");
     await voting.connect(voter1).vote(0);
     await expect(voting.connect(voter1).vote(0)).to.be.revertedWith("Already voted");
   });
 
+  // Kịch bản: Không cho phép bỏ phiếu cho ứng viên không tồn tại
   it("should not allow voting for non-existent candidate", async () => {
     await expect(voting.connect(voter1).vote(0)).to.be.revertedWith("Candidate does not exist");
   });
 
+  // Kịch bản: Trả về đúng sức mạnh phiếu bầu dựa trên số dư token
   it("should return correct voting power based on token balance", async () => {
     expect(await voting.getVotingPower(voter1.address)).to.equal(1);
     expect(await voting.getVotingPower(voter2.address)).to.equal(2);
